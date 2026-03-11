@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/assets/fonts/PlayfairDisplay-VariableFont_wght.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/PlusJakartaSans-VariableFont_wght.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Navy blue palette */
+    --background: 0.98 0.005 250;
+    --foreground: 0.15 0.04 250;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.04 250;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.04 250;
+
+    /* Primary = deep navy */
+    --primary: 0.22 0.07 255;
+    --primary-foreground: 0.98 0 0;
+
+    /* Secondary = subtle navy tint */
+    --secondary: 0.93 0.02 250;
+    --secondary-foreground: 0.22 0.07 255;
+
+    /* Muted */
+    --muted: 0.93 0.01 250;
+    --muted-foreground: 0.45 0.04 250;
+
+    /* Accent = gold */
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.12 0.04 250;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.02 250;
+    --input: 0.88 0.02 250;
+    --ring: 0.72 0.12 75;
+
+    /* Custom brand tokens */
+    --navy: 0.22 0.07 255;
+    --navy-dark: 0.13 0.06 255;
+    --navy-light: 0.35 0.07 255;
+    --gold: 0.72 0.12 75;
+    --gold-light: 0.82 0.10 80;
+    --gold-dark: 0.58 0.14 70;
+
+    --chart-1: 0.72 0.12 75;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.22 0.07 255;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.22 0.07 255;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+  .text-navy {
+    color: oklch(var(--navy));
+  }
+  .bg-navy {
+    background-color: oklch(var(--navy));
+  }
+  .bg-navy-dark {
+    background-color: oklch(var(--navy-dark));
+  }
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+  .border-navy {
+    border-color: oklch(var(--navy));
+  }
+  .hover\:bg-gold-dark:hover {
+    background-color: oklch(var(--gold-dark));
+  }
+  .section-fade {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .section-fade.in-view {
+    opacity: 1;
+    transform: none;
+  }
+}
